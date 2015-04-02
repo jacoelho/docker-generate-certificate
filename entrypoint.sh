@@ -30,7 +30,6 @@ openssl req -new -newkey rsa:4096 -key server.key -out server.csr -subj "/C=CA/S
 # Sign the certificate!
 openssl ca -in server.csr -out server.pem -batch
 
-chmod 600 ${CA_DIR}/private/cakey.pem
 cp server.key /certificates
 cp server.pem /certificates
-cp ${CA_DIR}/private/cakey.pem /certificates
+cp ${CA_DIR}/cacert.pem /certificates
