@@ -31,5 +31,5 @@ openssl req -new -newkey rsa:4096 -key server.key -out server.csr -subj "/C=CA/S
 openssl ca -in server.csr -out server.pem -batch
 
 cp server.key /certificates
-cp server.pem /certificates
+sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' server.pem > /certificates/server.pem
 cp ${CA_DIR}/cacert.pem /certificates
