@@ -8,7 +8,11 @@ The certificate subject organization is specified using the commandline option t
 
 An example of generating a certificate for server "server.example.com" using the standard CA organization (assuming you tag the image as jacoelho/genearate-certificate):
 
-- ```docker run --rm -v $(pwd):/certificates -e "SERVER=server.example.com" -e "SUBJECT=/C=CA/ST=Canada/L=Canada/O=IT/CN=CA" jacoelho/generate-certificate```
+- ```docker run --rm -v $(pwd):/certificates -e "SERVER=server.example.com" jacoelho/generate-certificate```
+
+Or if you want to set, for example an organization:
+
+- ```docker run --rm -v $(pwd):/certificates -e "SERVER=server.example.com" -e "SUBJECT=/C=CA/ST=Canada/L=Canada/O=IT" jacoelho/generate-certificate```
 
 for the specified server will generate:
 
